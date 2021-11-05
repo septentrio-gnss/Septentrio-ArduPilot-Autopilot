@@ -132,6 +132,7 @@ public:
 #if HAL_SIM_GPS_ENABLED
         GPS_TYPE_SITL = 100,
 #endif
+        GPS_TYPE_SBF_DUAL_ANTENNA = 26,
     };
 
     /// GPS status codes
