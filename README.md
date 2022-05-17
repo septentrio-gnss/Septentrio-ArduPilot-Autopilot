@@ -10,6 +10,9 @@ It is continually being expanded to provide support for new emerging vehicle typ
 
 ## Releases
 The releases on this repository are verified by Septentrio. Every Septentrio release ends with "-septentrio". Other releases are verified by ArduPilot but may not support Septentrio receivers.
+### 3.5 Septentrio heading support
+There is a release available which supports dual antenna setups. It's build from ArduPilot v3.5 with some alterations of @WickedShell
+https://github.com/septentrio-gnss/Septentrio-ArduPilot-Autopilot/releases/tag/v3.5-septentrio
 
 _To see the changes from a specific release, go to the release page and open the "Full Changelog" link._
 
