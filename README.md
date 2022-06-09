@@ -8,6 +8,9 @@ It has been under development since 2010 by a diverse team of professional engin
 Our autopilot software is capable of controlling almost any vehicle system imaginable, from conventional airplanes, quad planes, multi-rotors, and helicopters to rovers, boats, balance bots, and even submarines.
 It is continually being expanded to provide support for new emerging vehicle types.
 
+## Getting started
+To get started with ArduPilot and a Septentrio receiver, follow the [getting started guide](getting_started.md).
+
 ## Releases
 The releases on this repository are verified by Septentrio. Every Septentrio release ends with "-septentrio". Other releases are verified by ArduPilot but may not support Septentrio receivers.
 ### 3.5 Septentrio heading support
