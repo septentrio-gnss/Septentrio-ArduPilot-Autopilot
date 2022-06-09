@@ -27,7 +27,6 @@ labeled "PWR & GND") on the 44 pin cable for this.
 
 ### Step 2:
 Connect one or two GNSS antennas to the external antenna ports on the AsteRx-i3 D board as shown in Figure 1.
-MMCX connectors.png
 
 ![](getting_started_assets/rtaImage.jpeg "External Antenna ports")
 
