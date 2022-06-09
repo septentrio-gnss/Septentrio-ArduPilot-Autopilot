@@ -54,7 +54,7 @@ If using Mission Planner as the GCS, select the COM port drop-down in the upper-
 ![](getting_started_assets/rtaImage%20(2).jpeg "Selection of Pixhawk 4 port in the Mission Planner")
 
 #### Install firmware
-In Mission Planner’s SETUP | Install Firmware screen click "Load custom firmware"
+In Mission Planner’s SETUP | Install Firmware screen click "Load custom firmware" and select the .apj file.
 
 Mission Planner will try to detect which board you are using. It may ask you to unplug the board, press OK, and plug it back in to detect the board type.
 
