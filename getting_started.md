@@ -95,8 +95,8 @@ Finally, you can also switch off the Ardupilot automatic configuration by settin
 <img width="75%" src="getting_started_assets/rtaImage%20(5).jpeg">
 </p>
 
-#### Dual antena extra parameters
-For dual antena setupn, modify the folowing settings :
+#### Dual antenna extra parameters
+For dual antenna setup, modify the following settings :
 * [AHRS_EKF_TYPE](https://ardupilot.org/copter/docs/parameters.html#ahrs-ekf-type) = 3 (to use EKF3)
 * [EK2_ENABLE](https://ardupilot.org/copter/docs/parameters.html#ek2-enable) = 0 (to disable EKF2)
 * [EK3_ENABLE](https://ardupilot.org/copter/docs/parameters.html#ek3-enable) = 1 (to enable EKF3)
@@ -110,14 +110,14 @@ save the settings to memory.
 
 ### Step 8:
 Now, open the receiver's webUI (or another interface) and define an SBF data stream on COM2 with an output rate of 10Hz for AsteRx-m3. In the webUI, you can do this via NMEA/SBF Out as shown in figure 7. 
-#### Single antena
-For single antena, the recommended SBF messages are "PVTGeodetic", "DOP", "VelCovGeodetic" and "ReceiverStatus".
+#### Single antenna
+For single antenna, the recommended SBF messages are "PVTGeodetic", "DOP", "VelCovGeodetic" and "ReceiverStatus".
 <p align="center">
 <img width="60%" src="getting_started_assets/rtaImage%20(6).jpeg">
 </p>
 
 
-#### Dual antena
+#### Dual antenna
 The recommended SBF messages for dual antenna are "PVTGeodetic", "VelCovGeodetic", "DOP", "AttEuler", "AttCovEuler" and "ReceiverStatus".
 <p align="center">
 <img width="60%" src="getting_started_assets/sbf_setup_dual.png">
@@ -143,7 +143,7 @@ reports 3D Fix for GPS2 to indicate a standalone solution as shown in Figure 9.
 
 To read more about injecting RTK corrections using Mission Planner, please go to this [article](https://customersupport.septentrio.com/s/article/How-to-inject-RTK-Corrections-into-an-AsteRx-UAS-receiver-via-Mission-Planner).
 
-### Step 10 (Only for Dual Antena setup)
+### Step 10 (Only for Dual antenna setup)
 
 The attitude (heading/pitch) can be computed from the orientation of the baseline between the main and the aux1 GNSS antennas.
 <p align="center">
