@@ -14,8 +14,8 @@ To get started with ArduPilot and a Septentrio receiver, follow the [getting sta
 ## Releases
 The releases on this repository are verified by Septentrio. Every Septentrio release ends with "-septentrio". Other releases are verified by ArduPilot but may not support Septentrio receivers.
 ### 4.3 Septentrio heading support
-There is a release available which supports dual antenna setups. It's build from ArduPilot v3.5 with some alterations of @WickedShell
-[https://github.com/septentrio-gnss/Septentrio-ArduPilot-Autopilot/releases/tag/v3.5-septentrio](https://github.com/septentrio-gnss/Septentrio-ArduPilot-Autopilot/releases/tag/4.3-copter-septentrio)
+There is a release available which supports dual antenna setups. It's build from ArduPilot v4.3 with some alterations of @WickedShell
+[https://github.com/septentrio-gnss/Septentrio-ArduPilot-Autopilot/releases/tag/v4.3-septentrio](https://github.com/septentrio-gnss/Septentrio-ArduPilot-Autopilot/releases/tag/4.3-copter-septentrio)
 
 _To see the changes from a specific release, go to the release page and open the "Full Changelog" link._
 
