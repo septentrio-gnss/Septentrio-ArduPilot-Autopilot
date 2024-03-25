@@ -1,3 +1,0 @@
-class Emitter(object):
-    pass
-

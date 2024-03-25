@@ -1,23 +1,35 @@
-![](ardupilot-septentrio_banner.png "ArduPilot - Septentrio banner")
+![](docs/ardupilot_septentrio_banner.png "ArduPilot - Septentrio banner")
 
 # ArduPilot Project
-This repository is a fork from the official ArduPilot-Autopilot. All releases are verified by Septentrio.
 
-ArduPilot is the most advanced, full-featured, and reliable open source autopilot software available.
-It has been under development since 2010 by a diverse team of professional engineers, computer scientists, and community contributors.
-Our autopilot software is capable of controlling almost any vehicle system imaginable, from conventional airplanes, quad planes, multi-rotors, and helicopters to rovers, boats, balance bots, and even submarines.
-It is continually being expanded to provide support for new emerging vehicle types.
+This repository is a fork from the official ArduPilot-Autopilot. All releases are verified by
+Septentrio.
+
+ArduPilot is the most advanced, full-featured, and reliable open source autopilot software
+available. It has been under development since 2010 by a diverse team of professional engineers,
+computer scientists, and community contributors. Our autopilot software is capable of controlling
+almost any vehicle system imaginable, from conventional airplanes, quad planes, multi-rotors, and
+helicopters to rovers, boats, balance bots, and even submarines. It is continually being expanded to
+provide support for new emerging vehicle types.
 
 ## Getting started
-To get started with ArduPilot and a Septentrio receiver, follow the [getting started guide](getting_started.md).
+
+To get started with ArduPilot and a Septentrio receiver, follow the [getting started
+guide](docs/getting_started.md).
 
 ## Releases
-The releases on this repository are verified by Septentrio. Every Septentrio release ends with "-septentrio". Other releases are verified by ArduPilot but may not support Septentrio receivers.
+
+The releases on this repository are verified by Septentrio. Every Septentrio release ends with
+"-septentrio". Other releases are verified by ArduPilot but may not support Septentrio receivers.
+
 ### 4.3 Septentrio heading support
-There is a release available which supports dual antenna setups. It's build from ArduPilot v4.3 with some alterations of @WickedShell
+
+There is a release available which supports dual antenna setups. It's build from ArduPilot v4.3 with
+some alterations of @WickedShell
 [https://github.com/septentrio-gnss/Septentrio-ArduPilot-Autopilot/releases/tag/v4.3-septentrio](https://github.com/septentrio-gnss/Septentrio-ArduPilot-Autopilot/releases/tag/4.3-copter-septentrio)
 
-_To see the changes from a specific release, go to the release page and open the "Full Changelog" link._
+_To see the changes from a specific release, go to the release page and open the "Full Changelog"
+link._
 
 ## Supported Septentrio Receivers
 
@@ -26,69 +38,54 @@ _To see the changes from a specific release, go to the release page and open the
 * [AsteRx-m3 Pro](https://web.septentrio.com/l/858493/2022-04-19/xgrrz)
 * [AsteRx-m3 Pro+](https://web.septentrio.com/l/858493/2022-04-19/xgrs3)
 
-## The ArduPilot project is made up of: ##
+## The ArduPilot project is made up of:
 
 - ArduCopter: [code](https://github.com/ArduPilot/ardupilot/tree/master/ArduCopter), [wiki](https://ardupilot.org/copter/index.html)
-
 - ArduPlane: [code](https://github.com/ArduPilot/ardupilot/tree/master/ArduPlane), [wiki](https://ardupilot.org/plane/index.html)
-
 - Rover: [code](https://github.com/ArduPilot/ardupilot/tree/master/Rover), [wiki](https://ardupilot.org/rover/index.html)
-
 - ArduSub : [code](https://github.com/ArduPilot/ardupilot/tree/master/ArduSub), [wiki](http://ardusub.com/)
-
 - Antenna Tracker : [code](https://github.com/ArduPilot/ardupilot/tree/master/AntennaTracker), [wiki](https://ardupilot.org/antennatracker/index.html)
 
-## User Support & Discussion Forums ##
+## User Support & Discussion Forums
 
 - Support Forum: <https://discuss.ardupilot.org/>
-
 - Community Site: <https://ardupilot.org>
 
-## Developer Information ##
+## Developer Information
 
 - Github repository: <https://github.com/ArduPilot/ardupilot>
-
 - Main developer wiki: <https://ardupilot.org/dev/>
-
 - Developer discussion: <https://discuss.ardupilot.org>
-
 - Developer chat: <https://discord.com/channels/ardupilot>
 
-## Top Contributors ##
+## Top Contributors
 
 - [Flight code contributors](https://github.com/ArduPilot/ardupilot/graphs/contributors)
 - [Wiki contributors](https://github.com/ArduPilot/ardupilot_wiki/graphs/contributors)
 - [Most active support forum users](https://discuss.ardupilot.org/u?order=post_count&period=quarterly)
 - [Partners who contribute financially](https://ardupilot.org/about/Partners)
 
-## How To Get Involved ##
+## How To Get Involved
 
 - The ArduPilot project is open source and we encourage participation and code contributions: [guidelines for contributors to the ardupilot codebase](https://ardupilot.org/dev/docs/contributing.html)
-
 - We have an active group of Beta Testers to help us improve our code: [release procedures](https://ardupilot.org/dev/docs/release-procedures.html)
-
 - Desired Enhancements and Bugs can be posted to the [issues list](https://github.com/ArduPilot/ardupilot/issues).
-
 - Help other users with log analysis in the [support forums](https://discuss.ardupilot.org/)
-
 - Improve the wiki and chat with other [wiki editors on Discord #documentation](https://discord.com/channels/ardupilot)
-
 - Contact the developers on one of the [communication channels](https://ardupilot.org/copter/docs/common-contact-us.html)
 
-## License ##
+## License
 
-The ArduPilot project is licensed under the GNU General Public
-License, version 3.
+The ArduPilot project is licensed under the GNU General Public License, version 3.
 
 - [Overview of license](https://dev.ardupilot.com/wiki/license-gplv3)
-
 - [Full Text](https://github.com/ArduPilot/ardupilot/blob/master/COPYING.txt)
 
-## Maintainers ##
+## Maintainers
 
-ArduPilot is comprised of several parts, vehicles and boards. The list below
-contains the people that regularly contribute to the project and are responsible
-for reviewing patches on their specific area.
+ArduPilot is comprised of several parts, vehicles and boards. The list below contains the people
+that regularly contribute to the project and are responsible for reviewing patches on their specific
+area.
 
 - [Andrew Tridgell](https://github.com/tridge):
   - ***Vehicle***: Plane, AntennaTracker
