@@ -433,6 +433,32 @@ const AP_Param::GroupInfo AP_GPS::var_info[] = {
 #endif // GPS_MAX_RECEIVERS > 1
 #endif // HAL_ENABLE_DRONECAN_DRIVERS
 
+    // @Param: _LOG_HZ
+    // @DisplayName: Log frequency
+    // @Description: The frequency with which the receiver logs information.
+    // @Units: Hz
+    // @Increment: 0.1
+    // @Range: 0 20
+    // @RebootRequired: True
+    // @User: Advanced
+    AP_GROUPINFO("_LOG_HZ", 34, AP_GPS, _logging_frequency, 1.0f),
+
+    // @Param: _LOG_LEVEL
+    // @DisplayName: Log level
+    // @Description: The level of detail the receiver should log.
+    // @Values: 0:Lite, 1:Basic, 2:Default, 3:Full
+    // @RebootRequired: True
+    // @User: Advanced
+    AP_GROUPINFO("_LOG_LEVEL", 35, AP_GPS, _logging_level, 2),
+
+    // @Param: _LOG_FORCE
+    // @DisplayName: Log overwrite
+    // @Description: Whether logging setup should overwrite existing logging on the receiver.
+    // @Values: 0:Disabled, 1:Enabled
+    // @RebootRequired: True
+    // @User: Advanced
+    AP_GROUPINFO("_LOG_FORCE", 36, AP_GPS, _logging_overwrite, 0),
+
     AP_GROUPEND
 };
 
