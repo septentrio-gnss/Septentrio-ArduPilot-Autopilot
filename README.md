@@ -1,4 +1,4 @@
-![](docs/ardupilot_septentrio_banner.png "ArduPilot Septentrio banner")
+![](docs/images/ardupilot_septentrio_banner.png "ArduPilot Septentrio banner")
 
 > The official project can be found in [this repository on
 > GitHub](https://github.com/ArduPilot/ardupilot)

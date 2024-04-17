@@ -1,6 +1,80 @@
-# Getting Started With ArduPilot
+# Getting Started Guide
 
-## Connect Latest AsteRX OEM Receivers With Pixhawh 4 Using Robotics Interface Board
+- [Hardware Setup](#hardware-setup)
+    - [Dual Antenna](#dual-antenna)
+    - [Web App](#web-app)
+- [ArduPilot Setup](#ardupilot-setup)
+    - [Single Antenna Setup](#single-antenna-setup)
+    - [Dual Antenna Setup](#dual-antenna-setup)
+- [LED Status](#led-status)
+
+This guide explains how to connect and configure autopilot hardware running ArduPilot to work with a
+Septentrio receiver.
+
+## Hardware Setup
+
+| Pixhawk 4 & mosaic-go                           | Pixhawk 4 & RIB Board                     |
+|:-----------------------------------------------:|:-----------------------------------------:|
+| ![](images/hardware_setup/mosaic_go_wiring.png) | ![](images/hardware_setup/rib_wiring.png) |
+
+1. Power the receiver with at least 3.3V, using either a USB connector or power from the connection
+   to the autopilot
+2. Connect one or two GNSS antennas to the "RF-IN" ports on the receiver
+3. Connect the receiver to the autopilot hardware like in the diagrams above
+4. In the web interface or with Rx Tools, make sure the receiver's baud rate is set to 115200
+   **Admin > Expert Control > Control Panel > Communication > COM Port Settings** (this is the
+   default value).
+
+**When using a mosaic-go, make sure the JST cable is wired correctly as it is not a standard cable.
+Below is the wiring diagram.**
+
+<img src="images/hardware_setup/jst_cable.png" alt="JST Cable Diagram" width="600" />
+
+### Dual Antenna
+
+The attitude (autopilot orientation) can be computed by the receiver and provided to the autopilot
+based on the baseline between the main and auxiliary GNSS antennas.
+
+<img src="images/hardware_setup/multi_antenna_attitude_setup.png" alt="Multi-antenna attitude determination setup" height="300"/>
+
+To enable multi-antenna attitude, follow the steps below:
+
+1. Attach two antennas to your vehicle, using cables of approximately the same length. The default
+   antenna configuration is as depicted in the figure above. It consists in placing the antennas
+   aligned with the longitudinal axis of the vehicle, main antenna behind aux1. For best accuracy,
+   try to maximize the distance between the antennas, and avoid significant height difference
+   between the antenna ARPs.
+2. In practice, the two antenna ARPs may not be exactly at the same height in the vehicle frame, or
+   the main-aux1 baseline may not be exactly parallel or perpendicular to the longitudinal axis of
+   the vehicle. This leads to offsets in the computed attitude angles. These offsets can be
+   compensated for with the `GPS_YAW_OFFSET` and `GPS_PITCH_OFFSET` parameters, which can be set
+   from your ground control station.
+
+_For optimal heading results, the two antennas should be seperated at least 30 cm / 11.8 in (ideally
+50 cm / 19.7 in or more)_
+
+_For additional configuration of the dual antenna setup, please refer to our [Knowledge
+Base](https://customersupport.septentrio.com/s/topiccatalog) or the [hardware
+manuals](https://www.septentrio.com/en/support/product-resources)_
+
+### Web App
+
+mosaic-H GPS/GNSS receiver module with heading comes with fully documented interfaces, commands and
+data messages. The included GNSS receiver control and analysis software
+[RxTools](https://web.septentrio.com/l/858493/2022-04-19/xgrqp) allows receiver configuration,
+monitoring as well as data logging and analysis.
+
+The receiver includes an intuitive web user interface for easy operation and monitoring allowing you
+to control the receiver from any mobile device or computer. The web interface also uses easy-to-read
+quality indicators ideal to monitor the receiver operation during the job at hand.
+
+![Septentrio web user interface](images/software/septentrio_receiver_web_ui.png)
+
+## ArduPilot Setup
+
+### Single Antenna Setup
+
+### Dual Antenna Setup
 
 The steps below detail how to integrate a Pixhawk 4 with the latest generation AsteRx GNSS and INS
 receivers using a Robotics Interface Board (RIB). In this example, the setup is done in a lab
@@ -8,14 +82,15 @@ environment using an AsteRx-m3 D receiver with RIB, without installing it on an 
 Aerial System). Please note that the procedure is same for AsteRx-i3 S and AsteRx-m3 receivers (with
 RIB kits).
 
-The following materials are required for the integration:
-* Windows Laptop/PC
-* AsteRx GNSS OEM receiver
-* Pixhawk 4
-* Latest Mission Planner version installed on any Laptop/PC
-* Dual-frequency GNSS antenna(s)
-* Adapters and cables to interface with MMCX connectors
-* 2 * Micro-USB cable
+The following are required for the integration:
+
+- Windows Laptop/PC
+- AsteRx GNSS OEM receiver
+- Pixhawk 4
+- Latest Mission Planner version installed on any Laptop/PC
+- Dual-frequency GNSS antenna(s)
+- Adapters and cables to interface with MMCX connectors
+- 2 * Micro-USB cable
 
 The integration encompasses the following steps:
 
@@ -29,27 +104,25 @@ open ended supply (labeled "PWR & GND").
 Connect one or two GNSS antennas to the external antenna ports on the AsteRx Receiver board as shown
 in Figure 1.
 <p align="center">
-  <img width="40%" src="asterx_oem_rib_setup/step1.jpeg">
+  <img width="40%" src="images/asterx_oem_rib_setup/step1.jpeg">
 </p>
-
 
 ### Step 3:
 
 Now connect the AsteRx Receiver to the GPS MODULE port on the Pixhawk 4 as shown in Figure 2 and
 figure 3 depending on your receiver.
 <p align="center">
-  <img width="40%" src="asterx_oem_rib_setup/step1.jpeg">
+  <img width="40%" src="images/asterx_oem_rib_setup/step1.jpeg">
 </p>
 
 <p align="center">
-  <img width="40%" src="hardware_setup/mosaic_go_wiring.png">
+  <img width="40%" src="images/hardware_setup/mosaic_go_wiring.png">
 </p>
 
 The cable should be wired as show in figure 4.
 <p align="center">
-  <img width="50%" src="hardware_setup/jst_cable.png ">
+  <img width="50%" src="images/hardware_setup/jst_cable.png ">
 </p>
-
 
 ### Step 4:
 
@@ -78,9 +151,8 @@ window near the Connect button. Select AUTO or the specific port for your board.
 to 115200 as shown. Do not hit Connect just yet.
 
 <p align="center">
-  <img src="asterx_oem_rib_setup/step3.jpeg">
+  <img src="images/asterx_oem_rib_setup/step3.jpeg">
 </p>
-
 
 #### Install Firmware
 
@@ -96,14 +168,13 @@ If all goes well, you will see a status appear on the bottom right including the
 It usually takes a few seconds for the bootloader to exit and enter the main code after programming
 or a power-up. Wait to press CONNECT until this occurs.
 
-
 ### Step 6:
 In Mission Planner, select the port corresponding to the Pixhawk 4 as shown in Figure 3 and then
 click connect (please note that port enumeration will be different for different connections). Make
 sure the baudrate matches the one of the receiver which is 115200 baud per default.
 
 <p align="center">
-  <img src="asterx_oem_rib_setup/step3.jpeg">
+  <img src="images/asterx_oem_rib_setup/step3.jpeg">
 </p>
 
 ### Step 7:
@@ -112,18 +183,18 @@ Full Parameter List (highlighted on the left in figure 4). Now search for "GPS_T
 value to 10 to select SBF as incoming data format, it will select the AsteRx receiver as the second
 GPS as shown in Figure 4.
 <p align="center">
-<img width="75%" src="asterx_oem_rib_setup/step4.jpeg">
+<img width="75%" src="images/asterx_oem_rib_setup/step4.jpeg">
 </p>
 Also make sure that the "SERIAL4_BAUD" parameter is set to 115 and that "SERIAL4_PROTOCOL" is
 configured as value 5 for GPS as shown in Figure 5.
 <p align="center">
-<img width="75%" src="asterx_oem_rib_setup/step5.jpeg">
+<img width="75%" src="images/asterx_oem_rib_setup/step5.jpeg">
 </p>
 
 Finally, you can also switch off the Ardupilot automatic configuration by setting "GPS_AUTO_CONFIG"
 to 0 as shown below.
 <p align="center">
-<img width="75%" src="asterx_oem_rib_setup/step6.jpeg">
+<img width="75%" src="images/asterx_oem_rib_setup/step6.jpeg">
 </p>
 
 #### Dual Antenna Extra Parameters
@@ -135,7 +206,6 @@ For dual antenna setup, modify the following settings :
 * [EK3_MAG_CAL](https://ardupilot.org/copter/docs/parameters.html#ek3-mag-cal) is not used for this feature so it can be left at its default value (“0” for Plane, “3” for Copter, “2” for Rover)
 * [EK3_SRC1_YAW](https://ardupilot.org/copter/docs/parameters.html#ek3-src1-yaw) = 2 (“GPS”) or 3 (“GPS with Compass Fallback”) if a compass(es) is also in the system
 * [GPS_TYPE](https://ardupilot.org/copter/docs/parameters.html#gps-type) = 26 (SBF-Heading)
-
 
 After applying all the above settings click on "Write Params" (on the right hand side of the screen
 in above figures) to save the settings to memory.
@@ -151,26 +221,23 @@ output rate of 10Hz for AsteRx-m3. In the webUI, you can do this via NMEA/SBF Ou
 For single antenna, the recommended SBF messages are "PVTGeodetic", "DOP", "VelCovGeodetic" and
 "ReceiverStatus".
 <p align="center">
-<img width="60%" src="asterx_oem_rib_setup/step7.jpeg">
+<img width="60%" src="images/asterx_oem_rib_setup/step7.jpeg">
 </p>
-
 
 #### Dual Antenna
 
 The recommended SBF messages for dual antenna are "PVTGeodetic", "VelCovGeodetic", "DOP",
 "AttEuler", "AttCovEuler" and "ReceiverStatus".
 <p align="center">
-<img width="60%" src="software_setup/sbf_setup_dual.png">
+<img width="60%" src="images/software_setup/sbf_setup_dual.png">
 </p>
-
 
 After this, you can save the current configuration in the non-volatile memory of the receiver to
 make sure that the receiver does not lose its configuration after power cycling. It can be done by
 going Admin > Configurations and copying the "current" config to "boot" as shown below.
 <p align="center">
-<img width="60%" src="asterx_oem_rib_setup/step8.jpeg">
+<img width="60%" src="images/asterx_oem_rib_setup/step8.jpeg">
 </p>
-
 
 ### Step 9:
 
@@ -179,7 +246,7 @@ the Flight Data screen, the GPS2 status should now be displayed, along with a lo
 the map. In this case, the screen reports 3D Fix for GPS2 to indicate a standalone solution as shown
 in Figure 9.
 <p align="center">
-<img src="asterx_oem_rib_setup/step9.jpeg">
+<img src="images/asterx_oem_rib_setup/step9.jpeg">
 </p>
 
 To read more about injecting RTK corrections using Mission Planner, please go to this
@@ -190,7 +257,7 @@ To read more about injecting RTK corrections using Mission Planner, please go to
 The attitude (heading/pitch) can be computed from the orientation of the baseline between the main
 and the aux1 GNSS antennas.
 <p align="center">
-<img src="hardware_setup/multi_antenna_attitude_setup.png">
+<img src="images/hardware_setup/multi_antenna_attitude_setup.png">
 </p>
 
 To enable multi-antenna attitude determination, follow the following procedure:
