@@ -5,6 +5,10 @@
 
 # ArduPilot Autopilot Septentrio Fork
 
+- [User Documentation](#user-documentation)
+    - [Receivers](#receivers)
+- [Development Documentation](#development-documentation)
+
 ## User Documentation
 
 This is a fork of the ArduPilot autopilot project. It is used for releases containing Septentrio
