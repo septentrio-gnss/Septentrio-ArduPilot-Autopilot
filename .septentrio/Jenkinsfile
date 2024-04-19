@@ -1,0 +1,58 @@
+pipeline {
+    triggers {
+        // Poll the Git repository every 5 minutes to detect changes.
+        pollSCM('H/5 * * * *')
+    }
+    // Run stages without specified agent on any available agent.
+    agent any
+    // Parameters used for manual builds triggered in the Jenkins web UI.
+    parameters {
+        string(name: 'BOARDS', defaultValue: 'Pixhawk6C CubeOrangePlus', description: 'A space-separated list of boards to build for')
+    }
+    // Options for the pipeline.
+    options {
+        // Discard old builds to save space.
+        buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '1', numToKeepStr: '')
+    }
+    stages {
+        // Prepare the repository.
+        stage('Prepare') {
+            steps {
+                sh "./Tools/gittools/submodule-sync.sh"
+            }
+        }
+        // Build the Docker image, mount the repository as a volume in Docker and build inside the Docker container
+        stage('Build') {
+            environment {
+                CCACHE_DIR = ".ccache"
+            }
+            agent {
+                docker {
+                    image 'ardupilot/ardupilot-dev-chibios'
+                    reuseNode true
+                }
+            }
+            steps {
+                script {
+                    def boards_value = "${params.BOARDS}"
+                    def boards_split = boards_value.split(' ')
+                    for (board in boards_split) {
+                        sh "./waf configure --board ${board}"
+                        sh "./waf copter"
+                    }
+                }
+            }
+        }
+        stage('Archive'){
+            steps{
+                script {
+                    def boards_value = "${params.BOARDS}"
+                    def boards_split = boards_value.split(' ')
+                    for (board in boards_split) {
+                        archiveArtifacts( artifacts: "build/${board}/bin/arducopter.apj", followSymlinks: false)
+                    }
+                }
+            }
+        }
+    }
+}
